@@ -1,5 +1,5 @@
-import {React, useState} from 'react'
-import NavContainer from '../components/NavContainer'
+import { React, useState } from 'react'
+import NavContainer from '../components/NavContainer.jsx'
 
 const Home = () => {
     return (
@@ -12,4 +12,4 @@ const Home = () => {
    
 }
 
-export default Home;
+export default Home

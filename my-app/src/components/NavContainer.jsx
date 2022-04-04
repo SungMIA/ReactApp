@@ -29,7 +29,7 @@ const NavContainer = () => {
     return (
     <>
         <div className="navBarContainer">
-            <Navbar>
+            <Navbar bg="light" expand="lg">
                     <Navbar.Brand href="/">MY SITE</Navbar.Brand>
                     {
                         checkLogin()
