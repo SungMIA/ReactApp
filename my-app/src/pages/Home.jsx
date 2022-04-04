@@ -1,13 +1,13 @@
 import {React, useState} from 'react'
 import NavContainer from '../components/NavContainer'
 
-const Home = (login) => {
-    const [logged, setLogged] = useState(login);
-    
+const Home = () => {
     return (
-        <div className='homeContainer'>
-            <NavContainer login={login}></NavContainer>
-        </div>
+        <>
+            <div className='homeContainer'>
+                <NavContainer></NavContainer>
+            </div>
+        </>
     )
    
 }

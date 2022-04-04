@@ -1,15 +1,14 @@
-import logo from './logo.svg';
-import Navbar from './components/NavContainer'
+
 import Home from './pages/Home'
-import { BrowserRouter, Route } from 'react-router-dom'
-import { Switch } from 'react-router'
+import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
     <BrowserRouter>
-      <Switch>
+      <Routes>
         <Route exact path="/" component={Home}/>
-      </Switch>
+      </Routes>
     </BrowserRouter>
   );
 }
