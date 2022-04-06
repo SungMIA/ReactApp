@@ -48,7 +48,7 @@ const Videos = ({audience}) => {
             {audience ? <h6>{audience}' Videos</h6>
             : <h6>Your Videos</h6>}
             <Nav>    
-                {exVideos.map((video) => {
+                {exVideos.map((video, i) => {
                     return (
                         <Card className="videoCard">
                             <Card.Img variant="top" src={`${video.img}`} className="videoImg"></Card.Img>

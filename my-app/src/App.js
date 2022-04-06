@@ -21,6 +21,7 @@ function App() {
         <Route exact path="/" element={<Home name={name} setName={setName} logged={logged} setLogged={setLogged} attempt={attempt} setAttempt={setAttempt} audience={audience} setAudience={setAudience}></Home>}/>
             <Route exact path="/user/:name" element={<Welcome name={name} setName={setName} logged={logged} setLogged={setLogged} attempt={attempt} setAttempt={setAttempt} audience={audience} setAudience={setAudience}></Welcome>}/>
               <Route exact path="/user/:name/teachers" element={<Teachers name={name} setName={setName} logged={logged} setLogged={setLogged} attempt={attempt} setAttempt={setAttempt} audience={audience} setAudience={setAudience}></Teachers>}/>
+              
               <Route exact path="/user/:name/students" element={<Students name={name} setName={setName} logged={logged} setLogged={setLogged} attempt={attempt} setAttempt={setAttempt} audience={audience} setAudience={setAudience}></Students>}/>
               <Route exact path="/user/:name/suppliers" element={<Suppliers name={name} setName={setName} logged={logged} setLogged={setLogged} attempt={attempt} setAttempt={setAttempt} audience={audience} setAudience={setAudience}></Suppliers>}/>
       </Routes>
