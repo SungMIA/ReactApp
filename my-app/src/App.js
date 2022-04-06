@@ -4,6 +4,7 @@ import Teachers from './pages/Teachers'
 import Students from './pages/Students'
 import Suppliers from './pages/Suppliers'
 import Welcome from './pages/Welcome.jsx'
+import VideoPlayer from './pages/VideoPlayer.jsx'
 import { React, useState } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -14,16 +15,93 @@ function App() {
   const [logged, setLogged] = useState(false)
   const [attempt, setAttempt] = useState(false)
   const [audience, setAudience] = useState()
+  const [currCourse, setCurrCourse] = useState(-1)
+  const [courses, setCourses] = useState(
+    [
+      {
+          "title": "Javascript: Getting Started",
+          "creator": "Mark Zamoyta",
+          "img": "https://i.ytimg.com/vi/2nZiB1JItbY/maxresdefault.jpg",
+          "classes": [
+              {"title": "Course Overview", "length":"1m 25s"} ,
+              {"title": "Introduction to Javascript", "length":"13m 28s"},
+              {"title": "Javascript Beginnings", "length":"23m 39s"},
+              {"title": "Variables and Constants", "length":"25m 45s"},
+              {"title": "Types and Operators", "length":"34m 58s"},
+          ]
+      },
+      {
+          "title": "Python: Getting Started",
+          "creator": "The Code X",
+          "img": "https://thecodelearners.com/wp-content/uploads/2020/02/Python-Getting-Started.jpg",
+          "classes": [
+              {"title": "Course Overview", "length":"1m 25s"} ,
+              {"title": "Introduction to Javascript", "length":"13m 28s"},
+              {"title": "Javascript Beginnings", "length":"23m 39s"},
+              {"title": "Variables and Constants", "length":"25m 45s"},
+              {"title": "Types and Operators", "length":"34m 58s"},
+          ]
+      },
+      {
+          "title": "Typescript: Getting Started",
+          "creator": "Medi Madelen Gwosdz",
+          "img": "https://149351115.v2.pressablecdn.com/wp-content/uploads/2021/05/blog-getting-started-typescript.png",
+          "classes": [
+              {"title": "Course Overview", "length":"1m 25s"} ,
+              {"title": "Introduction to Javascript", "length":"13m 28s"},
+              {"title": "Javascript Beginnings", "length":"23m 39s"},
+              {"title": "Variables and Constants", "length":"25m 45s"},
+              {"title": "Types and Operators", "length":"34m 58s"},
+          ]
+      }
+    ]
+  )
 
+  
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<Home name={name} setName={setName} logged={logged} setLogged={setLogged} attempt={attempt} setAttempt={setAttempt} audience={audience} setAudience={setAudience}></Home>}/>
-            <Route exact path="/user/:name" element={<Welcome name={name} setName={setName} logged={logged} setLogged={setLogged} attempt={attempt} setAttempt={setAttempt} audience={audience} setAudience={setAudience}></Welcome>}/>
-              <Route exact path="/user/:name/teachers" element={<Teachers name={name} setName={setName} logged={logged} setLogged={setLogged} attempt={attempt} setAttempt={setAttempt} audience={audience} setAudience={setAudience}></Teachers>}/>
-              
-              <Route exact path="/user/:name/students" element={<Students name={name} setName={setName} logged={logged} setLogged={setLogged} attempt={attempt} setAttempt={setAttempt} audience={audience} setAudience={setAudience}></Students>}/>
-              <Route exact path="/user/:name/suppliers" element={<Suppliers name={name} setName={setName} logged={logged} setLogged={setLogged} attempt={attempt} setAttempt={setAttempt} audience={audience} setAudience={setAudience}></Suppliers>}/>
+        <Route exact path="/" element={<Home
+         name={name} setName={setName} 
+         logged={logged} setLogged={setLogged} 
+         attempt={attempt} setAttempt={setAttempt} 
+         audience={audience} setAudience={setAudience}></Home>}/>
+            <Route exact path="/user/:name" element={<Welcome 
+            name={name} setName={setName} 
+            logged={logged} setLogged={setLogged} 
+            attempt={attempt} setAttempt={setAttempt} 
+            audience={audience} setAudience={setAudience}
+            courses={courses} setCourses={setCourses}
+            currCourse={currCourse} setCurrCourse={setCurrCourse}
+            ></Welcome>}/>
+              <Route exact path="/user/:name/VideoPlayer/:course" element={<VideoPlayer currCourse={currCourse} courses={courses}></VideoPlayer>}/>
+              <Route exact path="/user/:name/teachers" element={<Teachers 
+              name={name} setName={setName} 
+              logged={logged} setLogged={setLogged} 
+              attempt={attempt} setAttempt={setAttempt} 
+              audience={audience} setAudience={setAudience}
+              courses={courses} setCourses={setCourses}
+              currCourse={currCourse} setCurrCourse={setCurrCourse}
+              ></Teachers>}/>
+                <Route exact path="/user/:name/teachers/VideoPlayer/:course" element={<VideoPlayer currCourse={currCourse} courses={courses}></VideoPlayer>}/>
+              <Route exact path="/user/:name/students" element={<Students 
+              name={name} setName={setName} 
+              logged={logged} setLogged={setLogged} 
+              attempt={attempt} setAttempt={setAttempt} 
+              audience={audience} setAudience={setAudience}
+              courses={courses} setCourses={setCourses}
+              currCourse={currCourse} setCurrCourse={setCurrCourse}
+              ></Students>}/>
+                <Route exact path="/user/:name/students/VideoPlayer/:course" element={<VideoPlayer currCourse={currCourse} courses={courses}></VideoPlayer>}/>
+              <Route exact path="/user/:name/suppliers" element={<Suppliers 
+              name={name} setName={setName} 
+              logged={logged} setLogged={setLogged} 
+              attempt={attempt} setAttempt={setAttempt} 
+              audience={audience} setAudience={setAudience}
+              courses={courses} setCourses={setCourses}
+              currCourse={currCourse} setCurrCourse={setCurrCourse}
+              ></Suppliers>}/>
+                <Route exact path="/user/:name/teachers/:course/VideoPlayer/:course" element={<VideoPlayer currCourse={currCourse} courses={courses}></VideoPlayer>}/>
       </Routes>
     </BrowserRouter>
   );

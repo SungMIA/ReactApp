@@ -3,7 +3,7 @@ import { Card } from 'react-bootstrap'
 import Home from './Home'
 import Videos from '../components/Videos'
 
-const Welcome = ({name, setName, logged, setLogged, attempt, setAttempt, audience, setAudience}) => {
+const Welcome = ({name, setName, logged, setLogged, attempt, setAttempt, audience, setAudience, courses, setCourses, currCourse, setCurrCourse}) => {
     console.log(logged, attempt)
     return (
         <>
@@ -11,7 +11,7 @@ const Welcome = ({name, setName, logged, setLogged, attempt, setAttempt, audienc
             <Card className="welcomeCard">
                 <Card.Body className="welcomeBody">Welcome {name}!</Card.Body>
             </Card>
-            <Videos audience={audience}></Videos>
+            <Videos name={name} audience={audience} courses={courses} setCourses={setCourses} currCourse={currCourse} setCurrCourse={setCurrCourse}></Videos>
         </>
     )
 }

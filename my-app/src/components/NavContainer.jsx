@@ -53,9 +53,9 @@ const NavContainer = ({name, setName, logged, setLogged, attempt, setAttempt, au
                 : <Link onClick={() => (setAttempt(false), setLogged(false))} to={`/`}>MY SITE</Link> }
                 {attempt ? console.log("attempt is not false"): <button onClick={() => {setAttempt(true)}}>Login</button>}
                 {logged ? <>
-                    <Link onClick={() => setAudience("Teachers")} to={`/user/${name}/teachers`}>Teachers</Link>
-                    <Link onClick={() => setAudience("Students")} to={`/user/${name}/students`}>Students</Link>
-                    <Link onClick={() => setAudience("Suppliers")} to={`/user/${name}/suppliers`}>Suppliers</Link>
+                    <Link onClick={() => setAudience("Teachers")} to={`/user/${name}/Teachers`}>Teachers</Link>
+                    <Link onClick={() => setAudience("Students")} to={`/user/${name}/Students`}>Students</Link>
+                    <Link onClick={() => setAudience("Suppliers")} to={`/user/${name}/Suppliers`}>Suppliers</Link>
                     <Link onClick={() => (setLogged(false), setAttempt(false))} to='/'>Log Out</Link>
                 </> : console.log("logged is not true")}
             </Nav>
