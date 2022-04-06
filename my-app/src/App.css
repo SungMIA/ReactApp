@@ -16,7 +16,12 @@ h6 {
   margin: 2%;
 }
 
+.videoCard {
+  width: 29%;
+}
+
 .card {
+  flex-direction: row;
   margin: 2%;
 }
 

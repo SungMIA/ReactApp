@@ -18,7 +18,8 @@ const NavContainer = ({name, setName, logged, setLogged, attempt, setAttempt, au
                         <Form className="login" onSubmit={(e) => (
                             e.preventDefault(),
                             routeChange(1),
-                            setLogged(true)
+                            setLogged(true),
+                            setAudience(undefined)
                         )}>
                             <Form.Group className="mb-3" controlId="formEmail">
                                 <Form.Label>Email address</Form.Label>
@@ -47,8 +48,8 @@ const NavContainer = ({name, setName, logged, setLogged, attempt, setAttempt, au
     return (
     <> 
         <Container>
-            <Nav className="flex-direction-row flex-grow-1">
-                {logged ? (<Link onClick={() => (setAttempt(true), setLogged(true))} to={`/user/${name}/`}>MY SITE</Link>) 
+            <Nav>
+                {logged ? (<Link onClick={() => (setAttempt(true), setLogged(true), setAudience(undefined))} to={`/user/${name}/`}>MY SITE</Link>) 
                 : <Link onClick={() => (setAttempt(false), setLogged(false))} to={`/`}>MY SITE</Link> }
                 {attempt ? console.log("attempt is not false"): <button onClick={() => {setAttempt(true)}}>Login</button>}
                 {logged ? <>

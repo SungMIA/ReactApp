@@ -7,8 +7,8 @@ const Teachers = ({name, setName, logged, setLogged, attempt, setAttempt, audien
     return (
         <>
             <Home name={name} setName={setName} logged={logged} setLogged={setLogged} attempt={attempt} setAttempt={setAttempt} audience={audience} setAudience={setAudience}></Home>
-            <Card class="welcomeCard">
-                <Card.Body class="welcomeBody">Welcome {audience}!</Card.Body>
+            <Card className="welcomeCard">
+                <Card.Body className="welcomeBody">Welcome {audience}!</Card.Body>
             </Card>
             <Videos audience={audience}></Videos>
         </>
