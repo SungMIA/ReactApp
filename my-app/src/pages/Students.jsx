@@ -2,7 +2,7 @@ import { React } from 'react'
 import { Card } from 'react-bootstrap'
 import Home from './Home'
 
-const Teachers = ({name, setName, logged, setLogged, attempt, setAttempt, audience, setAudience}) => {
+const Students = ({name, setName, logged, setLogged, attempt, setAttempt, audience, setAudience}) => {
     return (
         <>
             <Home name={name} setName={setName} logged={logged} setLogged={setLogged} attempt={attempt} setAttempt={setAttempt} audience={audience} setAudience={setAudience}></Home>
@@ -13,4 +13,4 @@ const Teachers = ({name, setName, logged, setLogged, attempt, setAttempt, audien
     )
 }
 
-export default Teachers;
+export default Students;

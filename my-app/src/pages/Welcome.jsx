@@ -3,9 +3,10 @@ import { Card } from 'react-bootstrap'
 import Home from './Home'
 
 const Welcome = ({name, setName, logged, setLogged, attempt, setAttempt, audience, setAudience}) => {
+    console.log(logged, attempt)
     return (
         <>
-            <Home name={name} setName={setName} logged={logged} setLogged={setLogged} attempt={true} setAttempt={setAttempt} audience={audience} setAudience={setAudience}></Home>
+            <Home name={name} setName={setName} logged={logged} setLogged={setLogged} attempt={attempt} setAttempt={setAttempt} audience={audience} setAudience={setAudience}></Home>
             <Card>
                 <Card.Body>Welcome {name}!</Card.Body>
             </Card>

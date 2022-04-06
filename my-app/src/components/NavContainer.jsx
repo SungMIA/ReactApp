@@ -1,6 +1,6 @@
 import { React, useState } from 'react'
 import { Nav, Container, Form, Button} from 'react-bootstrap'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { Home } from '../pages/Home'
 import logged from '../pages/Home'
 import Welcome from '../pages/Welcome.jsx'
@@ -8,7 +8,7 @@ import Welcome from '../pages/Welcome.jsx'
 const NavContainer = ({name, setName, logged, setLogged, attempt, setAttempt, audience, setAudience}) => {
 
     const navigate = useNavigate()
-
+    console.log(audience)
     const routeChange = (i) => {
         let path = "/user/" + name
         navigate(path)
@@ -22,8 +22,7 @@ const NavContainer = ({name, setName, logged, setLogged, attempt, setAttempt, au
                         <Form className="login" onSubmit={(e) => (
                             e.preventDefault(),
                             routeChange(1),
-                            setLogged(true),
-                            setAttempt(false)
+                            setLogged(true)
                         )}>
                             <Form.Group className="mb-3" controlId="formEmail">
                                 <Form.Label>Email address</Form.Label>
@@ -52,17 +51,16 @@ const NavContainer = ({name, setName, logged, setLogged, attempt, setAttempt, au
     return (
     <> 
         <Container>
-            <Nav className="flex-direction-row justify-content-space-between flex-grow-1">
-                <Nav.Link className="flex-direction=-" href="/">MY SITE</Nav.Link>
-                <Form className="flex-direction-row">
-                    {attempt ? console.log("attempt is not false"): <button onClick={() => {setAttempt(true)}}>Login</button>}
-                    {logged ? <div>
-                        <Nav.Link href={name+"/teachers"} onClick={setAudience("Teachers")}>Teachers</Nav.Link>
-                        <Nav.Link href={name+"/students"} onClick={setAudience("Students")}>Students</Nav.Link>
-                        <Nav.Link href={name+"/suppliers"} onClick={setAudience("Suppliers")}>Suppliers</Nav.Link>
-                        <Nav.Link href='/'>Log Out</Nav.Link>
-                    </div> : console.log("logged is not true")}
-                </Form>
+            <Nav className="flex-direction-row flex-grow-1">
+                {logged ? (<Link onClick={() => (setAttempt(true), setLogged(true))} to={`/user/${name}/`}>MY SITE</Link>) 
+                : <Link onClick={() => (setAttempt(false), setLogged(false))} to={`/`}>MY SITE</Link> }
+                {attempt ? console.log("attempt is not false"): <button onClick={() => {setAttempt(true)}}>Login</button>}
+                {logged ? <>
+                    <Link onClick={() => setAudience("Teachers")} to={`/user/${name}/teachers`}>Teachers</Link>
+                    <Link onClick={() => setAudience("Students")} to={`/user/${name}/students`}>Students</Link>
+                    <Link onClick={() => setAudience("Suppliers")} to={`/user/${name}/suppliers`}>Suppliers</Link>
+                    <Link onClick={() => (setLogged(false), setAttempt(false))} to='/'>Log Out</Link>
+                </> : console.log("logged is not true")}
             </Nav>
             { login() }
         </Container>
