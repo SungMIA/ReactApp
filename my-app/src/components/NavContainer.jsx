@@ -1,14 +1,10 @@
 import { React, useState } from 'react'
 import { Nav, Container, Form, Button} from 'react-bootstrap'
 import { useNavigate, Link } from 'react-router-dom'
-import { Home } from '../pages/Home'
-import logged from '../pages/Home'
-import Welcome from '../pages/Welcome.jsx'
 
 const NavContainer = ({name, setName, logged, setLogged, attempt, setAttempt, audience, setAudience}) => {
 
     const navigate = useNavigate()
-    console.log(audience)
     const routeChange = (i) => {
         let path = "/user/" + name
         navigate(path)

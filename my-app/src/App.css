@@ -1,5 +1,23 @@
 .nav {
-  justify-content: space-between
+  justify-content: space-between;
+}
+
+a:link {
+  text-decoration: none;
+  padding: 1%
+}
+
+.welcomeBody {
+  text-align: center;
+  margin: 10%;
+}
+
+h6 {
+  margin: 2%;
+}
+
+.card {
+  margin: 2%;
 }
 
 .form {
