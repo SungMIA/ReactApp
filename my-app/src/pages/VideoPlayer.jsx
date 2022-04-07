@@ -70,7 +70,7 @@ const VideoPlayer = ({
                     <NavDropdown.Item
                       class="playItem"
                       id="playItem"
-                      href={`class/${i}/`}
+                      href={`${i}/`}
                       onClick={() => (
                         setCurrClass(i), setCurrCourse(currCourse)
                       )}
