@@ -2,14 +2,118 @@
   justify-content: space-between;
 }
 
+#homeURL {
+  margin-right: 50%;
+}
+
 a:link {
   text-decoration: none;
-  padding: 1%
+  padding: 1%;
+}
+
+.backButton {
+  width: 2em;
+}
+
+.backButton:active {
+  color: red;
 }
 
 .welcomeBody {
   text-align: center;
   margin: 10%;
+}
+
+#offcanvasNavbar {
+  background-color: #131a26;
+}
+
+#courseCreator {
+  color: white;
+  margin-left: 9%;
+}
+
+.offcanvas-header {
+  color: white;
+  padding-bottom: 0rem;
+  margin-left: 5%;
+}
+
+#offcanvasBody {
+  padding: 0%;
+  padding-top: 7%;
+}
+
+#offcanvasNavbarDropdown {
+  display: flex;
+  color: white;
+  padding: 2%;
+  padding-left: 5%;
+}
+#offcanvasNavbarDropdown[aria-expanded="true"] {
+  background-color: rgba(166, 182, 255, 0.938);
+}
+
+.dropdown-menu.show {
+  padding: 0%;
+  background-color: #131a26;
+}
+
+#classIndex {
+  padding-right: 5%;
+}
+
+#timeStamp {
+  margin-left: auto;
+}
+
+a#offcanvasNavbarDropdown.dropdown-toggle.nav-link::after {
+  margin-left: 3%;
+  margin-top: 3%;
+}
+
+#playItem {
+  padding-left: 2%;
+  font-size: 90%;
+  color: rgba(19, 129, 255, 0.808);
+  display: flex;
+  justify-content: left;
+  padding-bottom: 2%;
+}
+
+.playButton {
+  margin-right: 0.7em;
+}
+
+#playItem:hover {
+  background-color: rgb(166, 183, 250);
+}
+
+#timeStampDrop {
+  margin-left: auto;
+  padding-right: 3%;
+}
+
+.nav-item.dropdown {
+  border-bottom: 2px solid rgb(166, 182, 255);
+}
+
+.nav-item.dropdown:hover {
+  background-color: rgba(166, 182, 255, 0.596);
+}
+
+.btn-close {
+  color: white;
+}
+
+#toc {
+  padding-top: 5%;
+  padding-left: 9%;
+  color: white;
+  font-size: 1em;
+  font-weight: bold;
+  text-decoration: underline rgb(166, 182, 255) 30%;
+  text-underline-offset: 100%;
 }
 
 h6 {

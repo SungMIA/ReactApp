@@ -49,9 +49,9 @@ const NavContainer = ({name, setName, logged, setLogged, attempt, setAttempt, au
     <> 
         <Container>
             <Nav>
-                {logged ? (<Link onClick={() => (setAttempt(true), setLogged(true), setAudience(undefined))} to={`/user/${name}/`}>MY SITE</Link>) 
-                : <Link onClick={() => (setAttempt(false), setLogged(false))} to={`/`}>MY SITE</Link> }
-                {attempt ? console.log("attempt is not false"): <button onClick={() => {setAttempt(true)}}>Login</button>}
+                {logged ? (<Link id="homeURL" onClick={() => (setAttempt(true), setLogged(true), setAudience(undefined))} to={`/user/${name}/`}>MY SITE</Link>) 
+                : <Link id="homeURL" onClick={() => (setAttempt(false), setLogged(false))} to={`/`}>MY SITE</Link> }
+                {attempt ? console.log("attempt is not false"): <Link onClick={() => {setAttempt(true)}} to={`/`}>Login</Link>}
                 {logged ? <>
                     <Link onClick={() => setAudience("Teachers")} to={`/user/${name}/Teachers`}>Teachers</Link>
                     <Link onClick={() => setAudience("Students")} to={`/user/${name}/Students`}>Students</Link>
