@@ -97,7 +97,7 @@ function App() {
         />
         <Route
           exact
-          path="/user/:name/VideoPlayer/Course/:course/*"
+          path="/user/:name/VideoPlayer/Course/*"
           element={
             <VideoPlayer
               currCourse={currCourse}
@@ -105,6 +105,7 @@ function App() {
               currClass={currClass}
               setCurrClass={setCurrClass}
               courses={courses}
+              name={name}
             ></VideoPlayer>
           }
         />
@@ -130,7 +131,7 @@ function App() {
         />
         <Route
           exact
-          path="/user/:name/teachers/VideoPlayer/Course/:course/*"
+          path="/user/:name/teachers/VideoPlayer/Course/*"
           element={
             <VideoPlayer
               currCourse={currCourse}
@@ -138,19 +139,7 @@ function App() {
               currClass={currClass}
               setCurrClass={setCurrClass}
               courses={courses}
-            ></VideoPlayer>
-          }
-        />
-        <Route
-          exact
-          path="/user/:name/teachers/VideoPlayer/Course/:course/*"
-          element={
-            <VideoPlayer
-              currCourse={currCourse}
-              setCurrCourse={setCurrCourse}
-              currClass={currClass}
-              setCurrClass={setCurrClass}
-              courses={courses}
+              name={name}
             ></VideoPlayer>
           }
         />
@@ -176,7 +165,7 @@ function App() {
         />
         <Route
           exact
-          path="/user/:name/students/VideoPlayer/Course/:course/*"
+          path="/user/:name/students/VideoPlayer/Course/*"
           element={
             <VideoPlayer
               currCourse={currCourse}
@@ -184,6 +173,7 @@ function App() {
               currClass={currClass}
               setCurrClass={setCurrClass}
               courses={courses}
+              name={name}
             ></VideoPlayer>
           }
         />
@@ -209,7 +199,7 @@ function App() {
         />
         <Route
           exact
-          path="/user/:name/suppliers/VideoPlayer/Course/:course/*"
+          path="/user/:name/suppliers/VideoPlayer/Course/*"
           element={
             <VideoPlayer
               currCourse={currCourse}
@@ -217,6 +207,7 @@ function App() {
               currClass={currClass}
               setCurrClass={setCurrClass}
               courses={courses}
+              name={name}
             ></VideoPlayer>
           }
         />

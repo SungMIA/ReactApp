@@ -23,8 +23,8 @@ const Videos = ({
                 onClick={() => setCurrCourse(i)}
                 to={
                   audience
-                    ? `/user/${name}/${audience}/VideoPlayer/Course/${i}/`
-                    : `/user/${name}/VideoPlayer/Course/${i}/`
+                    ? `/user/${name}/${audience}/VideoPlayer/Course/${i}`
+                    : `/user/${name}/VideoPlayer/Course/${i}`
                 }
               >
                 <Card>

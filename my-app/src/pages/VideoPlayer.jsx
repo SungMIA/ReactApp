@@ -6,7 +6,7 @@ import {
   NavDropdown,
   Offcanvas,
 } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Home from "./Home";
 import { IconContext } from "react-icons";
 import { BsArrowLeft } from "react-icons/bs";
@@ -18,8 +18,9 @@ const VideoPlayer = ({
   currClass,
   setCurrClass,
   courses,
+  name,
 }) => {
-  console.log(currCourse, courses);
+  console.log(currClass);
   const navigate = useNavigate();
 
   //   const checkCurrClass = ()
@@ -33,18 +34,33 @@ const VideoPlayer = ({
       </>
     );
   };
+
+  const updatePlayer = (i) => {
+    if (i === undefined) {
+      return (
+        <Navbar.Brand href="#">{`${courses[currCourse].title}`}</Navbar.Brand>
+      );
+    } else {
+      return (
+        <Navbar.Brand href="#">{`${courses[currCourse].classes[i].title}`}</Navbar.Brand>
+      );
+    }
+  };
+
   return (
     <Navbar bg="light" expand={false}>
       <Container fluid>
         <IconContext.Provider
           value={{ size: "1.3em", className: "backButton" }}
         >
-          <div onClick={() => navigate(-1)}>
+          <div
+            onClick={() => (navigate(`/user/${name}`), setCurrClass(undefined))}
+          >
             <BsArrowLeft />
           </div>
         </IconContext.Provider>
-        <Navbar.Brand href="#">{`${courses[currCourse].title}`}</Navbar.Brand>
-        <Navbar.Toggle aria-controls="offcanvasNavbar" />
+        {updatePlayer(currClass)}
+        <Navbar.Toggle aria-controls="offcanvasNavbar" toggle />
         <Navbar.Offcanvas
           id="offcanvasNavbar"
           aria-labelledby="offcanvasNavbarLabel"
@@ -67,27 +83,44 @@ const VideoPlayer = ({
                     title={formatClass(i, currClass.title, currClass.time)}
                     id="offcanvasNavbarDropdown"
                   >
-                    <NavDropdown.Item
-                      class="playItem"
-                      id="playItem"
-                      href={`${i}/`}
-                      onClick={() => (
-                        setCurrClass(i), setCurrCourse(currCourse)
-                      )}
-                    >
-                      <IconContext.Provider
-                        value={{
-                          size: "1.6em",
-                          className: "playButton",
-                          color: "rgba(19, 129, 255, 0.608)",
-                        }}
+                    <NavDropdown.Item class="playItem" id="playItem">
+                      <Link
+                        class="playItem"
+                        onClick={() => (
+                          setCurrClass(i), setCurrCourse(currCourse)
+                        )}
+                        to={`c${i}`}
                       >
-                        <div id="">
-                          <AiFillPlayCircle />
-                        </div>
-                      </IconContext.Provider>
-                      <div id="classTitleDrop">{`${currClass.title}`}</div>
-                      <div id="timeStampDrop">{`${currClass.time}`}</div>
+                        <IconContext.Provider
+                          value={{
+                            size: "1.6em",
+                            className: "playButton",
+                            color: "rgba(19, 129, 255, 0.608)",
+                          }}
+                        >
+                          <div id="">
+                            <AiFillPlayCircle />
+                          </div>
+                        </IconContext.Provider>
+                      </Link>
+                      <Link
+                        class="playItem"
+                        onClick={() => (
+                          setCurrClass(i), setCurrCourse(currCourse)
+                        )}
+                        to={`c${i}`}
+                      >
+                        <div id="classTitleDrop">{`${currClass.title}`}</div>
+                      </Link>
+                      <Link
+                        class="playItem"
+                        onClick={() => (
+                          setCurrClass(i), setCurrCourse(currCourse)
+                        )}
+                        to={`c${i}`}
+                      >
+                        <div id="timeStampDrop">{`${currClass.time}`}</div>
+                      </Link>
                     </NavDropdown.Item>
                   </NavDropdown>
                 </Nav>

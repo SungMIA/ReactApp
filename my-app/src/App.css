@@ -1,9 +1,11 @@
 .nav {
+  padding-top: 3%;
   justify-content: space-between;
+  font-size: 80%;
 }
 
-#homeURL {
-  margin-right: 50%;
+#teachersLink {
+  margin-left: auto;
 }
 
 a:link {
