@@ -63,7 +63,7 @@ const NavContainer = ({
   return (
     <>
       <Container>
-        <Nav>
+        <Nav id="navigation">
           {logged ? (
             <Link
               id="homeURL"
@@ -87,6 +87,7 @@ const NavContainer = ({
             console.log("attempt is not false")
           ) : (
             <Link
+              id="logoutLink"
               onClick={() => {
                 setAttempt(true);
               }}
@@ -102,7 +103,7 @@ const NavContainer = ({
                 onClick={() => setAudience("Teachers")}
                 to={`/user/${name}/Teachers`}
               >
-                Teachers
+                <div id="teachersLinkContent">Teachers</div>
               </Link>
               <Link
                 id="studentsLink"

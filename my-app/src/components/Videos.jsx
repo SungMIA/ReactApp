@@ -14,7 +14,7 @@ const Videos = ({
   return (
     <>
       {audience ? <h6>{audience}' Videos</h6> : <h6>Your Videos</h6>}
-      <Nav>
+      <Nav id="showVideos">
         {courses.map((video, i) => {
           return (
             <>
@@ -23,8 +23,8 @@ const Videos = ({
                 onClick={() => setCurrCourse(i)}
                 to={
                   audience
-                    ? `/user/${name}/${audience}/VideoPlayer/Course/${i}`
-                    : `/user/${name}/VideoPlayer/Course/${i}`
+                    ? `/user/${name}/${audience}/VideoPlayer/Course/${i + 1}`
+                    : `/user/${name}/VideoPlayer/Course/${i + 1}`
                 }
               >
                 <Card>

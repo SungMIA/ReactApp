@@ -1,0 +1,81 @@
+@media screen and (min-width: 601px) {
+  .nav a:hover {
+    background-color: rgba(202, 211, 255, 0.842);
+    color: rgb(255, 81, 0);
+  }
+
+  #showVideos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .card-title.h5 {
+    margin-bottom: 5%;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(166, 182, 255, 0.938);
+    border-bottom-width: thick;
+  }
+  #teachersLink,
+  #studentsLink,
+  #suppliersLink {
+    border-bottom-style: solid;
+    border-bottom-color: rgba(166, 182, 255, 0.938);
+  }
+}
+@media screen and (max-width: 600px) {
+  .nav a:hover {
+    background-color: rgba(202, 211, 255, 0.842);
+    color: rgb(255, 81, 0);
+  }
+
+  .login {
+    padding-top: 5%;
+  }
+
+  .welcomeCard.card {
+    padding: 20%;
+  }
+
+  .welcomeBody {
+    margin: 0;
+  }
+
+  #showVideos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .videoCard {
+    width: 70%;
+    margin: auto;
+  }
+
+  .card-title.h5 {
+    margin-bottom: 5%;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(166, 182, 255, 0.938);
+    border-bottom-width: thick;
+  }
+
+  .nav-item.dropdown {
+    font-size: 80%;
+  }
+
+  #classTitle {
+    font-size: 90%;
+  }
+
+  #teachersLink,
+  #studentsLink,
+  #suppliersLink {
+    border-bottom-style: solid;
+    border-bottom-color: rgba(166, 182, 255, 0.938);
+    border-bottom-width: thick;
+  }
+
+  .offcanvas-end {
+    width: 60%;
+  }
+}

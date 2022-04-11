@@ -1,4 +1,3 @@
-import "./App.css";
 import Home from "./pages/Home";
 import Teachers from "./pages/Teachers";
 import Students from "./pages/Students";
@@ -7,7 +6,9 @@ import Welcome from "./pages/Welcome.jsx";
 import VideoPlayer from "./pages/VideoPlayer.jsx";
 import { React, useState } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./AppTwo.css";
 import NavContainer from "./components/NavContainer";
 
 function App() {
@@ -24,10 +25,42 @@ function App() {
       img: "https://i.ytimg.com/vi/2nZiB1JItbY/maxresdefault.jpg",
       classes: [
         { title: "Course Overview", time: "1m 25s" },
-        { title: "Introduction to Javascript", time: "13m 28s" },
-        { title: "Javascript Beginnings", time: "23m 39s" },
-        { title: "Variables and Constants", time: "25m 45s" },
-        { title: "Types and Operators", time: "34m 58s" },
+        {
+          title: "Introduction to Javascript",
+          time: "13m 28s",
+          lessons: [
+            { title: "Introduction", time: "2m 15s" },
+            { title: "Installing Development Software", time: "1m 53s" },
+            { title: "Hello World Project1 from Github", time: "5m 8s" },
+            { title: "Our Sample Website", time: "4m 10s" },
+          ],
+        },
+        {
+          title: "Javascript Beginnings",
+          time: "23m 39s",
+          lessons: [
+            { title: "Introduction", time: "2m 15s" },
+            { title: "Installing Development Software", time: "1m 53s" },
+            { title: "Hello World Project1 from Github", time: "5m 8s" },
+          ],
+        },
+        {
+          title: "Variables and Constants",
+          time: "25m 45s",
+          lessons: [
+            { title: "Introduction", time: "2m 15s" },
+            { title: "Installing Development Software", time: "1m 53s" },
+            { title: "Hello World Project1 from Github", time: "5m 8s" },
+          ],
+        },
+        {
+          title: "Types and Operators",
+          time: "34m 58s",
+          lessons: [
+            { title: "Introduction", time: "2m 15s" },
+            { title: "Installing Development Software", time: "1m 53s" },
+          ],
+        },
       ],
     },
     {
