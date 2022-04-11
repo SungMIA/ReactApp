@@ -3,7 +3,7 @@ import Teachers from "./pages/Teachers";
 import Students from "./pages/Students";
 import Suppliers from "./pages/Suppliers";
 import Welcome from "./pages/Welcome.jsx";
-import VideoPlayer from "./pages/VideoPlayer.jsx";
+import VideoPlayerPage from "./pages/VideoPlayerPage.jsx";
 import { React, useState } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
@@ -18,6 +18,7 @@ function App() {
   const [audience, setAudience] = useState();
   const [currCourse, setCurrCourse] = useState(-1);
   const [currClass, setCurrClass] = useState();
+  const [currLesson, setCurrLesson] = useState();
   const [courses, setCourses] = useState([
     {
       title: "Javascript: Getting Started",
@@ -132,14 +133,16 @@ function App() {
           exact
           path="/user/:name/VideoPlayer/Course/*"
           element={
-            <VideoPlayer
+            <VideoPlayerPage
               currCourse={currCourse}
               setCurrCourse={setCurrCourse}
               currClass={currClass}
               setCurrClass={setCurrClass}
               courses={courses}
               name={name}
-            ></VideoPlayer>
+              currLesson={currLesson}
+              setCurrLesson={setCurrLesson}
+            ></VideoPlayerPage>
           }
         />
         <Route
@@ -164,16 +167,18 @@ function App() {
         />
         <Route
           exact
-          path="/user/:name/teachers/VideoPlayer/Course/*"
+          path="/user/:name/teachers/VideoPlayer/Course/:currCourse_:currClass_:currLesson"
           element={
-            <VideoPlayer
+            <VideoPlayerPage
               currCourse={currCourse}
               setCurrCourse={setCurrCourse}
               currClass={currClass}
               setCurrClass={setCurrClass}
               courses={courses}
               name={name}
-            ></VideoPlayer>
+              currLesson={currLesson}
+              setCurrLesson={setCurrLesson}
+            ></VideoPlayerPage>
           }
         />
         <Route
@@ -200,14 +205,16 @@ function App() {
           exact
           path="/user/:name/students/VideoPlayer/Course/*"
           element={
-            <VideoPlayer
+            <VideoPlayerPage
               currCourse={currCourse}
               setCurrCourse={setCurrCourse}
               currClass={currClass}
               setCurrClass={setCurrClass}
               courses={courses}
               name={name}
-            ></VideoPlayer>
+              currLesson={currLesson}
+              setCurrLesson={setCurrLesson}
+            ></VideoPlayerPage>
           }
         />
         <Route
@@ -234,14 +241,16 @@ function App() {
           exact
           path="/user/:name/suppliers/VideoPlayer/Course/*"
           element={
-            <VideoPlayer
+            <VideoPlayerPage
               currCourse={currCourse}
               setCurrCourse={setCurrCourse}
               currClass={currClass}
               setCurrClass={setCurrClass}
               courses={courses}
               name={name}
-            ></VideoPlayer>
+              currLesson={currLesson}
+              setCurrLesson={setCurrLesson}
+            ></VideoPlayerPage>
           }
         />
       </Routes>
