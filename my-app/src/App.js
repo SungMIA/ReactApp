@@ -4,12 +4,12 @@ import Students from "./pages/Students";
 import Suppliers from "./pages/Suppliers";
 import Welcome from "./pages/Welcome.jsx";
 import VideoPlayerPage from "./pages/VideoPlayerPage.jsx";
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./AppTwo.css";
-import NavContainer from "./components/NavContainer";
+import axios from "axios";
 
 function App() {
   const [name, setName] = useState();
@@ -19,6 +19,7 @@ function App() {
   const [currCourse, setCurrCourse] = useState(-1);
   const [currClass, setCurrClass] = useState();
   const [currLesson, setCurrLesson] = useState();
+  const [youtube, setYoutube] = useState();
   const [courses, setCourses] = useState([
     {
       title: "Javascript: Getting Started",
@@ -89,6 +90,26 @@ function App() {
       ],
     },
   ]);
+
+  useEffect(() => {
+    const fetchVideo = async () => {
+      const data = await axios
+        .get(
+          "https://www.googleapis.com/youtube/v3/videos?part=snippet&id=8124kv-632k&key=[AIzaSyD3B5mg2tiB1I5cemOs7GObGRLnHZkDIvs]",
+          {
+            headers: {
+              Authorization:
+                "Bearer ya29.A0ARrdaM-gko9vAKaQ1W--wxyWeOzfX1A7TwsW7H3KRUHsRlSbHhMxGRfiorISsUaRuUeu-3_z_XRF366WTD_MZC9Teqe-6DtcoLd4umqj0me16irUb91yenwSJHSp9Uyxg9v0DIvtwdzPE-ek9spWqdhNUHCj",
+              Accept: "application/json",
+            },
+          }
+        )
+        .then((res) => {
+          console.log(res);
+        });
+    };
+    fetchVideo().catch(console.error);
+  }, []);
 
   return (
     <BrowserRouter>

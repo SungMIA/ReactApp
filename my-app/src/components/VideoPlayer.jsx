@@ -74,6 +74,20 @@ const VideoPlayer = ({
           </div>
         </>
       );
+    } else {
+      return (
+        <>
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/8124kv-632k"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </>
+      );
     }
   };
 
@@ -248,6 +262,8 @@ const VideoPlayer = ({
                       <NavDropdown
                         title={formatClass(i, currClass.title, currClass.time)}
                         id="offcanvasNavbarDropdown"
+                        class="nav-item dropdown"
+                        aria-expanded={true}
                       >
                         {checkLessons(currClass, i)}
                       </NavDropdown>
