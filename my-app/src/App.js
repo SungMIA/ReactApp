@@ -91,6 +91,10 @@ function App() {
     },
   ]);
 
+  // fetching Chapter data from Google Youtube Data API
+  // Uses Auth 2.0 Playground, aka temporary auth access token
+  // need to familiarize/implement Auth 2.0 further to make sustainable requests
+
   useEffect(() => {
     const fetchVideo = async () => {
       const data = await axios

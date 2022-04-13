@@ -262,7 +262,6 @@ const VideoPlayer = ({
                       <NavDropdown
                         title={formatClass(i, currClass.title, currClass.time)}
                         id="offcanvasNavbarDropdown"
-                        class="nav-item dropdown"
                         aria-expanded={true}
                       >
                         {checkLessons(currClass, i)}
