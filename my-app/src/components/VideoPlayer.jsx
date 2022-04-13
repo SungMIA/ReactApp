@@ -41,18 +41,34 @@ const VideoPlayer = ({
 
   const showPlayer = (currCourse, currClass, currLesson) => {
     console.log(currCourse, currClass, currLesson);
-    if (currCourse === 0) {
-      console.log("herpderp");
+    if (currCourse === 1) {
+      if (!currClass) {
+        return (
+          <>
+            <div className="player-wrapper">
+              <ReactPlayer
+                className="react-player fixed-bottom"
+                url={`/videos/courses/course${currCourse}/Class1/Lesson1/1.MP4`}
+                width="100%"
+                height="90%"
+                muted={true}
+                playing={true}
+                controls={true}
+              />
+            </div>
+          </>
+        );
+      }
       return (
         <>
           <div className="player-wrapper">
             <ReactPlayer
               className="react-player fixed-bottom"
-              url={`../../public/videos/courses/course${currCourse + 1}/Class${
-                currClass + 1
-              }/Lesson${currLesson + 1}/*.MP4`}
+              url={`/videos/courses/course${currCourse}/Class${currClass}/Lesson${currLesson}/${currLesson}.MP4`}
               width="100%"
-              height="100%"
+              height="93%"
+              muted={true}
+              playing={true}
               controls={true}
             />
           </div>
@@ -97,9 +113,10 @@ const VideoPlayer = ({
               class="playItem"
               onClick={() => (
                 routeChange(currCourse, i, j),
-                setCurrClass(i + 1),
-                setCurrCourse(currCourse + 1),
-                setCurrLesson(j + 1)
+                setCurrClass(i),
+                setCurrCourse(currCourse),
+                setCurrLesson(j),
+                showPlayer(currCourse + 1, currClass + 1, currLesson + 1)
               )}
             >
               <IconContext.Provider
@@ -115,26 +132,31 @@ const VideoPlayer = ({
               </IconContext.Provider>
             </div>
             <div
-              id="classTitleDrop"
+              id="classTitleDropContainer"
               class="playItem"
               onClick={() => (
                 routeChange(currCourse, i, j),
-                setCurrClass(i + 1),
-                setCurrCourse(currCourse + 1),
-                setCurrLesson(j + 1)
+                setCurrClass(i),
+                setCurrCourse(currCourse),
+                setCurrLesson(j),
+                routeChange(currCourse, i, j),
+                showPlayer(currCourse + 1, currClass + 1, currLesson + 1)
               )}
             >
-              <div>{`${lesson.title}`}</div>
+              <div id="classTitleDrop">{`${lesson.title}`}</div>
             </div>
             <div
               id="timeStampDrop"
               class="playItem"
               onClick={() => (
                 routeChange(currCourse, i, j),
-                setCurrClass(i + 1),
-                setCurrCourse(currCourse + 1),
-                setCurrLesson(j + 1)
+                setCurrClass(i),
+                setCurrCourse(currCourse),
+                setCurrLesson(j),
+                routeChange(currCourse, i, j),
+                showPlayer(currCourse + 1, currClass + 1, currLesson + 1)
               )}
+              to={`${currCourse + 1}_${i + 1}_${j + 1}`}
             >
               <div>{`${lesson.time}`}</div>
             </div>
@@ -164,14 +186,14 @@ const VideoPlayer = ({
             </IconContext.Provider>
           </Link>
           <Link
-            id="classTitleDrop"
+            id="classTitleDropContainer"
             class="playItem"
             onClick={() => (
               setCurrClass(i), setCurrCourse(currCourse), setCurrLesson(0)
             )}
             to={`${currCourse + 1}_${i + 1}`}
           >
-            <div>{`${tempClass.title}`}</div>
+            <div id="classTitleDrop">{`${tempClass.title}`}</div>
           </Link>
           <Link
             id="timeStampDrop"
@@ -238,7 +260,7 @@ const VideoPlayer = ({
           </Navbar.Offcanvas>
         </Container>
       </Navbar>
-      {showPlayer(currCourse, currClass, currLesson)}
+      {showPlayer(currCourse + 1, currClass + 1, currLesson + 1)}
     </>
   );
 };

@@ -67,30 +67,36 @@
   }
 
   a#videoPlayerTitle {
-    width: 80%;
+    font-size: 85%;
+    width: 70%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
   .nav-item.dropdown {
-    font-size: 80%;
+    font-size: 90%;
   }
 
   #classTitle {
     font-size: 90%;
   }
 
-  #classTitleDrop {
+  #timeStampDrop {
+    margin-left: auto;
+  }
+
+  div#classTitleDropContainer {
+    padding: 2%;
     width: 60%;
-    max-width: 70%;
+  }
+
+  div#classTitleDrop {
+    font-size: 80%;
+    width: 100%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
-
-  #timeStampDrop {
-    margin-left: auto;
   }
 
   #teachersLink,
